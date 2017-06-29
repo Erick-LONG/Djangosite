@@ -11,7 +11,8 @@ def moments_input(request):
         form = MomentForm(request.POST)
         if form.is_valid():
             moment = form.save()
-            return HttpResponseRedirect(reverse("app.views.welcome"))
+            moment.save()
+            return HttpResponseRedirect(reverse('welcome'))
     else:
         form = MomentForm()
     PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
